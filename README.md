@@ -95,3 +95,101 @@ chai ID:866309914
 Bot Token:8333940258:AAEBv-cLifls709SU_bo4Dg2GUp0MzCzTmc
 ```
 
+docker compose
+
+```
+version: '3'
+
+services:
+
+  moviepilot:
+    stdin_open: true
+    tty: true
+    container_name: moviepilot-v2
+    hostname: moviepilot-v2
+    privileged: true
+    devices:
+      - '/dev/fuse:/dev/fuse'
+    ports:
+     - '3000:3000'
+     - '3001:3001'
+     - '8091:8091'
+    volumes:
+      - '/vol1/1000/CloudNAS:/cd2' #媒体
+      - '/vol1/1000/mp-strm:/mp-strm'
+      - '/vol1/1000/1E1TB:/vol1/1000/1E1TB' #媒体
+      - '/vol2/1000/2E14T:/vol2/1000/2E14T' #媒体
+      - '/vol3/1000/3E14T:/vol3/1000/3E14T' #媒体
+      - './moviepilot-v2/config:/config' #持久化配置
+      - './moviepilot-v2/core:/moviepilot/.cache/ms-playwright' #内核浏览器
+      - '/var/run/docker.sock:/var/run/docker.sock:ro' #重启MP权限
+    environment:
+      - 'NGINX_PORT=3000'
+      - 'PORT=3001'
+      - 'PUID=0'
+      - 'PGID=0'
+      - 'UMASK=000'
+      - 'TZ=Asia/Shanghai'
+      - 'SUPERUSER=admin'
+      - 'DB_TYPE=postgresql'
+      - 'DB_POSTGRESQL_HOST=postgresql'
+      - 'DB_POSTGRESQL_PORT=5432'
+      - 'DB_POSTGRESQL_DATABASE=moviepilot'
+      - 'DB_POSTGRESQL_USERNAME=moviepilot'
+      - 'DB_POSTGRESQL_PASSWORD=pg_password'
+      - 'CACHE_BACKEND_TYPE=redis'
+      - 'CACHE_BACKEND_URL=redis://:redis_password@redis:6379'
+      - 'PROXY_HOST=http://10.0.0.100:7890' # 代理地址
+      - 'API_TOKEN=HQfRBuEOcxcbcTZtYdmQQfEiZ'
+#      - 'GITHUB_TOKEN=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' #修改为自己的GITHUB_TOKEN
+#      - 'MOVIEPILOT_AUTO_UPDATE=false' #关闭重启时的自动升级功能 自动升级：MOVIEPILOT_AUTO_UPDATE=release
+#      - 'AUTO_UPDATE_RESOURCE=false'   #关闭自动更新资源包功能   关闭自动升级：MOVIEPILOT_AUTO_UPDATE=false
+# CookieCloud设置
+      - 'COOKIECLOUD_HOST=https://ck.599000.xyz:59999'   #CookieCloud服务器地址 必须添加
+      - 'COOKIECLOUD_KEY=hjDyRh4KpcbxpJa9VTB8ZH'  #cc用户KEY
+      - 'COOKIECLOUD_PASSWORD=uAm24GGnCcmKXkKqxiFWYb'  #cc端对端加密密码  
+# 用户认证
+      - 'AUTH_SITE=audiences'  #认证站点
+      - 'AUDIENCES_UID=10229' # 观众 ID 
+      - 'AUDIENCES_PASSKEY=8d451667e4e1eaa6f61813e6cfb43cdd ' # 观众 passkey
+#重命名格式
+#      - 'TV_RENAME_FORMAT={{title}}{% if year %} ({{year}}){% endif %} {% if tmdbid %}[tmdbid={{tmdbid}}]{% endif %}{% if season %}/Season {{season}}/{% endif %}{{original_name}}'  # 电视剧
+#      - 'MOVIE_RENAME_FORMAT={{title}}{% if year %} ({{year}}){% endif %} {% if tmdbid %}[tmdbid={{tmdbid}}]{% endif %}/{{original_name}}'  # 电影
+
+    restart: always
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    image: jxxghp/moviepilot-v2:latest
+
+  redis:
+    container_name: moviepilot-redis
+    volumes:
+        - ./redis/data:/data
+    image: redis:7.2.11
+    restart: always
+    command: redis-server --save 600 1 --requirepass redis_password
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgresql:
+    container_name: moviepilot-postgresql
+    image: postgres:17.6
+    restart: always
+    environment:
+      POSTGRES_DB: moviepilot
+      POSTGRES_USER: moviepilot
+      POSTGRES_PASSWORD: pg_password
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moviepilot -d moviepilot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+```

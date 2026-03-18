@@ -81,3 +81,17 @@
 ```
 {{title}} ({{year}}) [tmdbid={{tmdbid}}] /{{original_name}}
 ```
+
+API令牌
+
+```
+HQfRBuEOcxcbcTZtYdmQQfEiZ
+```
+
+Telegram
+
+```
+chai ID:866309914
+Bot Token:8333940258:AAEBv-cLifls709SU_bo4Dg2GUp0MzCzTmc
+```
+

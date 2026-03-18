@@ -1,6 +1,8 @@
 自定义规则组
 
-```[{"id":"filterGlobal","name":"全局过滤","include":"","exclude":"(?i)日语无字|先行|MiniBD|DIY原盘|原盘|iPad|UPSCALE|AV1|BDMV|RMVB|CAMRip|DVD|vcd|480p|OPUS"},{"id":"Complete","name":"完结","include":"(全|共)\\d+(集|期)|完结|合集|Complete","exclude":""},{"id":"filerGroup","name":"组过滤","include":"","exclude":"(?i)SubsPlease|Up to 21°C|VARYG|TELESYNC|NTb|sGnb|BHYS|HDSWEB|DBD|HDH|COLLECTiVE|SRVFI|YTS.MX|HDSPad"},{"id":"filterMovie","name":"电影体积过滤","include":"","exclude":"","size_range":"0-1000000"},{"id":"Netflix","name":"NF源","include":"Netflix|NF","exclude":""},{"id":"AMZN","name":"AMZN源","include":"AMZN|Amazon","exclude":""},{"id":"HQ","name":"高码","include":"HQ|高码|EDR","exclude":""},{"id":"WhiteList","name":"白名单","include":"\\b(Oldboys|GTR|RO|Telesto|CatEDU|PbK|Rainbaby|Ao|BMDru|c0kE|cfandora|jsum|RNML|FraMeSToR|ADE|CHD|CMCT|Sunny|WiKi|PTer|MTeam|FRDS|UBits|FROGE|beAst|Dream|BeiTai|RLeaves|R²|PTH|HDChina|LHD|ZONE|btshd|ADWeb|HHWEB|CHDWEB|CMCTV|TJUPT|OurTV|PTerWEB|MWeb|UBWEB|FROGWeb|QHstudIo|DBTV|RLWeb|LeagueWEB|HDCTV|ZWEX|ZmWeb|Kitsune|NTb|playWEB|BYNDR|FLUX|ETHEL|EDITH|VARYG|HONE|YingWEB|OPS|AilMWeb|ARiC|喵萌奶茶屋|豌豆字幕组|爱恋字幕社|漫猫字幕社|北宇治字幕组|云光字幕组|织梦字幕组|千夏字幕组|极影字幕社|风之圣殿字幕组|风车字幕组|银色子弹字幕组|熔岩动画|MingYSub|枫叶字幕组|诸神字幕组|AKito|秋人|霜庭云花Sub|轻之国度字幕组|星空字幕组|离谱Sub|雪飘工作室|拨雪寻春|新Sub|MCE汉化组|極彩字幕组|氢气烤肉架|悠哈璃羽字幕社|桜都字幕组|SweetSub|LoliHouse|&VCB-Studio|VCB-Studio&|7³ACG|幻之字幕组|魔穗字幕组|澄空学园|LittleBakas!|白恋字幕组|动漫国字幕组|FSD字幕组|FSD粉羽社|一只出格君|猫恋汉化组|OPFans枫雪动漫|GM-Team|康复重症监护室字幕组|SilverBullet|APTX4869|幻樱字幕组|永恒译制|咪梦字幕组|NEO·QSW)\\b"},{"id":"PreferenceGroup","name":"剧集优先组","include":"ADWeb｜HHWEB｜CHDWEB｜OurTV｜HDSWEB｜UBWEB"},{"id":"RULE11","name":"杜比","include":"DV|DoVi"},{"id":"filterSeries","name":"剧集体积过滤","size_range":"3000-15000"}]```
+```
+[{"id":"filterGlobal","name":"全局过滤","include":"","exclude":"(?i)日语无字|先行|MiniBD|DIY原盘|原盘|iPad|UPSCALE|AV1|BDMV|RMVB|CAMRip|DVD|vcd|480p|OPUS"},{"id":"Complete","name":"完结","include":"(全|共)\\d+(集|期)|完结|合集|Complete","exclude":""},{"id":"filerGroup","name":"组过滤","include":"","exclude":"(?i)SubsPlease|Up to 21°C|VARYG|TELESYNC|NTb|sGnb|BHYS|HDSWEB|DBD|HDH|COLLECTiVE|SRVFI|YTS.MX|HDSPad"},{"id":"filterMovie","name":"电影体积过滤","include":"","exclude":"","size_range":"0-1000000"},{"id":"Netflix","name":"NF源","include":"Netflix|NF","exclude":""},{"id":"AMZN","name":"AMZN源","include":"AMZN|Amazon","exclude":""},{"id":"HQ","name":"高码","include":"HQ|高码|EDR","exclude":""},{"id":"WhiteList","name":"白名单","include":"\\b(Oldboys|GTR|RO|Telesto|CatEDU|PbK|Rainbaby|Ao|BMDru|c0kE|cfandora|jsum|RNML|FraMeSToR|ADE|CHD|CMCT|Sunny|WiKi|PTer|MTeam|FRDS|UBits|FROGE|beAst|Dream|BeiTai|RLeaves|R²|PTH|HDChina|LHD|ZONE|btshd|ADWeb|HHWEB|CHDWEB|CMCTV|TJUPT|OurTV|PTerWEB|MWeb|UBWEB|FROGWeb|QHstudIo|DBTV|RLWeb|LeagueWEB|HDCTV|ZWEX|ZmWeb|Kitsune|NTb|playWEB|BYNDR|FLUX|ETHEL|EDITH|VARYG|HONE|YingWEB|OPS|AilMWeb|ARiC|喵萌奶茶屋|豌豆字幕组|爱恋字幕社|漫猫字幕社|北宇治字幕组|云光字幕组|织梦字幕组|千夏字幕组|极影字幕社|风之圣殿字幕组|风车字幕组|银色子弹字幕组|熔岩动画|MingYSub|枫叶字幕组|诸神字幕组|AKito|秋人|霜庭云花Sub|轻之国度字幕组|星空字幕组|离谱Sub|雪飘工作室|拨雪寻春|新Sub|MCE汉化组|極彩字幕组|氢气烤肉架|悠哈璃羽字幕社|桜都字幕组|SweetSub|LoliHouse|&VCB-Studio|VCB-Studio&|7³ACG|幻之字幕组|魔穗字幕组|澄空学园|LittleBakas!|白恋字幕组|动漫国字幕组|FSD字幕组|FSD粉羽社|一只出格君|猫恋汉化组|OPFans枫雪动漫|GM-Team|康复重症监护室字幕组|SilverBullet|APTX4869|幻樱字幕组|永恒译制|咪梦字幕组|NEO·QSW)\\b"},{"id":"PreferenceGroup","name":"剧集优先组","include":"ADWeb｜HHWEB｜CHDWEB｜OurTV｜HDSWEB｜UBWEB"},{"id":"RULE11","name":"杜比","include":"DV|DoVi"},{"id":"filterSeries","name":"剧集体积过滤","size_range":"3000-15000"}]
+```
 
 优先级规则组
 
@@ -60,14 +62,12 @@
 订阅完成
 
 ```
-
 {
         'title': '🎞 {{ title_year }} {% if season %}{{season}}{% endif %} 已完成订阅',
         'text': '{% if vote_average %}✨ 评分：{{ vote_average }}/10{% endif %}'
                 '{% if username %}\n👾 用户：{{ username }}{% endif %}'
                 '{% if overview %}\n\n🍿 简介：\n{{ overview }}{% endif %}'
 }
-
 ```
 
 电影重命名
